@@ -1,0 +1,5 @@
+# images配下はすべて無視する。
+static/images/
+tests/
+__pycache__/
+config/config.yaml
