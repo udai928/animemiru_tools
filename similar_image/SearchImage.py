@@ -24,7 +24,8 @@ class SearchImage:
             if os.path.exists(self.image_path):
                 return True
             else:
+                print(f"### ErrorDownload ### 画像（{self.image_url}）ダウンロードに失敗しました。比較対象から除外します。")
                 return False
         except urllib.error.URLError as e:
-            print(f"画像（{self.image_url}）ダウンロードに失敗しました。比較対象から除外します。：{e}")
+            print(f"### ErrorDownload ### 画像（{self.image_url}）ダウンロードに失敗しました。比較対象から除外します。：{e}")
             return False

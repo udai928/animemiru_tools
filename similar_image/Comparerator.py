@@ -7,6 +7,7 @@ IMG_SIZE = (800, 450)
 COLOR = ('b','g','r')
 
 class Comparerator:
+
     def __init__(self,search_img, hosting_img):
         self.search_img_obj = search_img
         self.hosting_img_obj = hosting_img
@@ -20,15 +21,15 @@ class Comparerator:
         judgment = False
         if self.hist_result == None and self.hist_rgb_result != None and self.des_result != None:
             print(f"{self.hist_result}がNoneでした。")
-            if des_result < 130 and hist_rgb_result >= 0.7:
+            if self.des_result < 130 and self.hist_rgb_result >= 0.7:
                 return True
         if self.hist_result != None and self.hist_rgb_result == None and self.des_result != None:
             print(f"{self.hist_rgb_result}がNoneでした。")
-            if des_result < 130 and hist_result >= 0.7:
+            if self.des_result < 130 and self.hist_result >= 0.7:
                 return True
         if self.hist_result != None and self.hist_rgb_result != None and self.des_result == None:
             print(f"{self.des_result}がNoneでした。")
-            if hist_rgb_result > 0.6 and hist_rgb_result > 0.6:
+            if self.hist_rgb_result > 0.6 and self.hist_rgb_result > 0.6:
                 return True
         if self.des_result < 150 and self.hist_rgb_result >= 0.6 and self.hist_result >= 0.6:
             return True
@@ -45,10 +46,10 @@ class Comparerator:
 
     def cal_histgram_rgb(self,image_path):
         img = cv2.imread(image_path)
-        img = cv2.resize(img,IMG_SIZE)
+        img = cv2.resize(img, IMG_SIZE)
         img_hist_rgb = {}
-        for i,col in enumerate(COLOR):
-            img_hist = cv2.calcHist([img],[i],None,[256],[0,256])
+        for i, col in enumerate(COLOR):
+            img_hist = cv2.calcHist([img], [i], None, [256], [0, 256])
             img_hist_rgb[col] = img_hist
         # img_hist.show()
         return img_hist_rgb
@@ -58,12 +59,11 @@ class Comparerator:
         hosting_hist = self.cal_histgram(self.hosting_img_obj.image_path)
         self.hist_result = cv2.compareHist(search_hist, hosting_hist, 0)
 
-    def cal_histgram(self,image_path):
+    def cal_histgram(self, image_path):
         img = cv2.imread(image_path)
-        img = cv2.resize(img,IMG_SIZE)
+        img = cv2.resize(img, IMG_SIZE)
         img_hist = cv2.calcHist([img], [0], None, [256], [0, 256])
         return img_hist
-
 
     def compare_description(self):
         detector = cv2.BRISK_create()
@@ -82,11 +82,12 @@ class Comparerator:
             dist = [m.distance for m in matches]
             ret = sum(dist) / len(dist)
         except cv2.error:
-            print(f"### exception ### BFMatcherでエラーが発生したため、マッチ度を10000にしました。search:{self.search_img_obj.image_filename} / hosting:{self.hosting_img_obj.image_filename} ")
+            print(f"### exception ### BFMatcherでエラーが発生したため、マッチ度を10000にしました。" \
+                  f"search:{self.search_img_obj.image_filename} / hosting:{self.hosting_img_obj.image_filename} ")
             ret = 100000
         self.des_result = ret
 
-    def cal_description(self,image_path, detector):
+    def cal_description(self, image_path, detector):
         img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
         img = cv2.resize(img, IMG_SIZE)
         kp, description = detector.detectAndCompute(img, None)

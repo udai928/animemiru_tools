@@ -9,33 +9,37 @@ from common import list_handler as lh
 from similar_image import similar_image_main as sim
 
 def main():
-    post_slack_similar_image(keyword)
+    ENV = sys.argv[1]
+    SEARCHWORD_STR = sys.argv[2]
+    post_slack_similar_image(ENV, SEARCHWORD_STR)
 
-def post_slack_similar_image(environment_str,keyword):
+def post_slack_similar_image(environment_str, searchword):
     source_url = rs.load_config(environment_str)["source_url"]
     webhook_url = rs.load_config(environment_str)["webhook_url"]
     bot_name = rs.load_config(environment_str)["bot_name"]
     image_www_path = rs.load_config(environment_str)["image_www_path"]
 
-    select_images = sim.similar_image(environment_str,keyword)
+    select_images = sim.similar_image(environment_str,searchword)
 
     for select_image in lh.unique(select_images):
         image_static_path = (select_image.hosting_img_path).split("static/")
         print(image_static_path)
 
-        message_text = f"""{image_www_path}{image_static_path[1]}\n""" \
-                        f"""```<img src=\"static{image_static_path[1]}\" alt=\"\" width=\"480\" height=\"270\" class=\"alignnone size-medium wp-image-598\" />\n""" \
-                        f"""<a href=\"{source_url}\" target=\"_blank\" rel=\"noopener\"><div class=\"source\">出典: [anime.anime_title] 第[anime_stroy.story_id]話</div></a>```"""
+        message_text = f"""{image_www_path}/{image_static_path[1]}\n""" \
+            f"""```<img src=\"static{image_static_path[1]}\" alt=\"\" width=\"480\" height=\"270\" """ \
+            f"""class=\"alignnone size-medium wp-image-598\" />\n""" \
+            f"""<a href=\"{source_url}\" target=\"_blank\" rel=\"noopener\"><div class=\"source\">""" \
+            f"""出典: [anime.anime_title] 第[anime_stroy.story_id]話</div></a>```"""
 
-        post_slack_webhook(bot_name,message_text)
+        post_slack_webhook(bot_name,message_text, webhook_url)
         print(message_text)
 
 
-def post_slack_webhook(name, text):
+def post_slack_webhook(botname, text, webhook_url):
     requests.post(webhook_url,data=json.dumps(
             {
                 "text": text,
-                "username": name,
+                "username": botname,
                 "icon_emoji": ":python:"
             }))
 
