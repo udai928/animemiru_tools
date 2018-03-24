@@ -1,3 +1,5 @@
+!.gitkeep
+
 static/images/*
 test_mysqldata_of_this_dir_is_existed.py
 __pycache__/
