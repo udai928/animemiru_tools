@@ -1,5 +1,4 @@
-# images配下はすべて無視する。
-static/images/
-tests/
+static/images/*
+test_mysqldata_of_this_dir_is_existed.py
 __pycache__/
-config/config.yaml
+config.yaml
