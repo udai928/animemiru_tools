@@ -2,6 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb7df85d-488b-4951-9954-03ad9474b73f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/similar_image/tmp_search_images/2a2ed96d-s.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/similar_image/tmp_search_images/2f871eaa-s.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/similar_image/tmp_search_images/6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/similar_image/tmp_search_images/61oPMjDSoML._SX342_.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/similar_image/tmp_search_images/799911.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/similar_image/tmp_search_images/d_kazuma_hyouzyo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/similar_image/tmp_search_images/d_kazuma_tati.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/similar_image/tmp_search_images/kazuma-01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/similar_image/tmp_search_images/latest?cb=20160802071734&amp;path-prefix=ja" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/similar_image/tmp_search_images/maxresdefault.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/animemiru_tools.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/similar_image/tmp_search_images/.gitkeep" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/similar_image/Comparerator.py" afterPath="$PROJECT_DIR$/similar_image/Comparerator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/similar_image/HostingImage.py" afterPath="$PROJECT_DIR$/similar_image/HostingImage.py" />
