@@ -1,10 +1,11 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 import cv2
 import os
 import sys
 
 IMG_SIZE = (800, 450)
 COLOR = ('b','g','r')
+
 
 class Comparerator:
 

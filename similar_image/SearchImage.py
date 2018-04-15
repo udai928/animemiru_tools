@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 import os
 import urllib.request
 import urllib.error
@@ -6,6 +6,7 @@ import urllib.error
 import sys
 sys.path.append('..')
 from common import read_setting as rs
+
 
 class SearchImage:
     def __init__(self,image_url,environment_str):

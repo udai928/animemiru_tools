@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 from slackbot.bot import Bot
 
+# cd ^^^^^/animemiru_tools/nerdbot/
+# python run.py
+
 def main():
     bot = Bot()
     bot.run()

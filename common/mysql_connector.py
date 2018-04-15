@@ -39,7 +39,7 @@ def insert_query_statement(sql_statement,env):
         connection.close()
 
 
-def execute_select_one(sql,env):
+def execute_select_one(sql, env):
     connection = getConnection(env)
     try:
         cursor = connection.cursor()
@@ -56,7 +56,7 @@ def execute_select_one(sql,env):
         # print(f"select:{sql}\n↑実行したSQLです。")
     return result
 
-def execute_select_all(sql,env):
+def execute_select_all(sql, env):
     connection = getConnection(env)
     try:
         cursor = connection.cursor()

@@ -1,6 +1,7 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 import sys
 sys.path.append('..')
+
 
 class HostingImage:
     def __init__(self, image_filename, image_path):
