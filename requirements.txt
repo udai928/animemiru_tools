@@ -1,6 +1,5 @@
 # pip install -r requirements.txt
 Flask==0.12.2
-# pip install flaskした。requiremetnsテキストからinstallできなかたった。。。
 mysql-connector==2.1.4
 PyYAML==3.12
 slackbot

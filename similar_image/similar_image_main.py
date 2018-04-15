@@ -10,7 +10,7 @@ def similar_image(env_str,searchword_str):
     print("# Google画像検索でヒットした画像のURLを取得")
     google_search_image_urls = source.get_image_urls_from_google(searchword_str, env_str)
 
-    print("# Google画像検索画像のダウンロード先tmpフォルダ内の画像を削除")
+    print("# Google画像検索画像のダウンロード先tmpフォルダ内の画像を削除。フォルダが無ければ作成する。")
     source.delete_files(env_str)
 
     print("# Google画像検索でヒットした画像をダウンロード")

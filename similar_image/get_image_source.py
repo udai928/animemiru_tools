@@ -81,6 +81,8 @@ def get_title_dirs_from(searchword_str, environment_str):
 
 def delete_files(environment_str):
     search_image_dir = rs.load_config(environment_str)["search_image_dir"]
+    if not os.path.exists(search_image_dir):
+        os.makedirs(search_image_dir)
     for root, dirs, files in os.walk(search_image_dir, topdown=False):
         for name in files:
             os.remove(os.path.join(root, name))
